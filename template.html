@@ -41,6 +41,17 @@
 		var form = document.createElement('form');
 		document.body.prepend(form);
 
+		var search = document.createElement('input');
+		search.autofocus = true;
+		search.addEventListener('input', event => {
+			var q = search.value.toLowerCase();
+			document.querySelectorAll('tbody tr').forEach(tr => {
+				var th = tr.querySelector('td');
+				tr.hidden = q && !th.textContent.toLowerCase().includes(q);
+			});
+		});
+		form.append(search);
+
 		document.querySelectorAll('th').forEach(th => {
 			var label = document.createElement('label');
 			var checkbox = document.createElement('input');
