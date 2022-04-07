@@ -1,5 +1,6 @@
 import csv
 import html
+import locale
 from pathlib import Path
 
 LABELS = {
@@ -20,6 +21,8 @@ DIR = {
 	'ar': 'rtl',
 	'fa': 'rtl',
 }
+
+locale.setlocale(locale.LC_ALL, '')
 
 
 def sort_key(item):
@@ -55,7 +58,7 @@ def get_header(data):
 
 
 def get_rows(data):
-	for word in sorted(data['de']):
+	for word in sorted(data['de'], key=locale.strxfrm):
 		row = []
 		for lang, translation in sorted(data.items(), key=sort_key):
 			row.append((lang, translation[word]))
