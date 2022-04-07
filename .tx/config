@@ -1,0 +1,8 @@
+[main]
+host = https://www.transifex.com
+
+[buro.glossar]
+source_file = data/de.csv
+source_lang = de
+type = MAGENTO
+file_filter = data/<lang>.csv
