@@ -46,8 +46,7 @@
 		search.addEventListener('input', event => {
 			var q = search.value.toLowerCase();
 			document.querySelectorAll('tbody tr').forEach(tr => {
-				var th = tr.querySelector('td');
-				tr.hidden = q && !th.textContent.toLowerCase().includes(q);
+				tr.hidden = q && !tr.textContent.toLowerCase().includes(q);
 			});
 		});
 		form.append(search);
