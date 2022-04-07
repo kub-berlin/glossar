@@ -70,9 +70,10 @@ if __name__ == '__main__':
 		template = fh.read()
 
 	thead = ''
-	for _, label in get_header(data):
+	for lang, label in get_header(data):
+		_lang = html.escape(lang)
 		_label = html.escape(label)
-		thead += f'<th>{_label}</th>\n'
+		thead += f'<th data-lang="{_lang}">{_label}</th>\n'
 
 	tbody = ''
 	for row in get_rows(data):

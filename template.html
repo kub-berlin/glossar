@@ -13,6 +13,16 @@
 			padding: 0.2em 0.5em;
 			vertical-align: top;
 		}
+		form {
+			display: flex;
+			gap: 1em;
+			margin-bottom: 1em;
+		}
+		@media print {
+			form {
+				display: none;
+			}
+		}
 	</style>
 </head>
 <body>
@@ -26,5 +36,26 @@
 			{{{ tbody }}}
 		</tbody>
 	</table>
+
+	<script>
+		var form = document.createElement('form');
+		document.body.prepend(form);
+
+		document.querySelectorAll('th').forEach(th => {
+			var label = document.createElement('label');
+			var checkbox = document.createElement('input');
+			checkbox.type = 'checkbox';
+			checkbox.checked = true;
+			checkbox.addEventListener('change', event => {
+				th.hidden = !checkbox.checked;
+				document.querySelectorAll(`td[lang="${th.dataset.lang}"]`).forEach(td => {
+					td.hidden = !checkbox.checked;
+				});
+			});
+			label.append(checkbox);
+			label.append(' ' + th.textContent);
+			form.append(label);
+		});
+	</script>
 </body>
 </html>
