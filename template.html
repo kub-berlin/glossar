@@ -16,8 +16,12 @@
 		form {
 			display: flex;
 			gap: 1em;
-			margin-bottom: 1em;
+			margin-top: 1em;
 		}
+		.fake-td {
+			border: 0;
+			padding: 0;
+			padding-bottom: 1em;
 		@media print {
 			form {
 				display: none;
@@ -26,16 +30,29 @@
 	</style>
 </head>
 <body>
-	<h1>Glossar für Sprachmittler*innen im Kontext Flucht und Migration</h3>
-
 	<table>
 		<thead>
 			<tr>
-				{{{ thead }}}
+				<td class="fake-td">
+					<h1>Glossar für Sprachmittler*innen im Kontext Flucht und Migration</h1>
+				</td>
 			</tr>
 		</thead>
 		<tbody>
-			{{{ tbody }}}
+			<tr>
+				<td class="fake-td">
+					<table>
+						<thead>
+							<tr>
+								{{{ thead }}}
+							</tr>
+						</thead>
+						<tbody>
+							{{{ tbody }}}
+						</tbody>
+					</table>
+				</td>
+			</tr>
 		</tbody>
 	</table>
 
