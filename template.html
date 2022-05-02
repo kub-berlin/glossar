@@ -11,6 +11,9 @@
 			font-family: sans-serif;
 			line-height: 1.5;
 		}
+		a {
+			color: #005c5e;
+		}
 		header {
 			display: flex;
 			justify-content: space-between;
@@ -42,9 +45,19 @@
 			border: 0;
 			padding: 0;
 			padding-bottom: 1em;
+		}
+		tfoot {
+			font-size: small;
+		}
+		tfoot p {
+			margin: 0;
+		}
 		@media print {
 			form {
 				display: none;
+			}
+			a::after {
+				content: ' (' attr(href) ')';
 			}
 		}
 	</style>
@@ -80,6 +93,21 @@
 				</td>
 			</tr>
 		</tbody>
+		<tfoot>
+			<tr>
+				<td class="fake-td">
+					<p>Das Glossar der KuB wird ständig überarbeitet und regelmäßig auf
+					<a href="https://kub-berlin.org/ueber-die-kub/veroeffentlichungen/">der Webseite</a>
+					veröffentlicht.</p>
+
+					<p>Die mit einem * markierten Begriffe haben wir mit freundlicher
+					Genehmigung der Schwulenberatung Berlin gGmbH aus ihrer Broschüre
+					<a href="https://www.schwulenberatungberlin.de/wp_uploads/_Handreichung_Online.pdf">"Wie eine Rose, die aus dem Riss im Beton erwächst"</a> entnommen.</p>
+
+					<p>Es gibt auch ein <a href="http://www.bamf.de/SharedDocs/Anlagen/DE/Publikationen/EMN/Glossary/emn-glossary2.pdf">Glossar des Europäischen Migrationsnetzwerks (EMN)</a> mit vielen Wörtern und Übersetzungen in allen EU-Sprachen.</p>
+				</td>
+			</tr>
+		</tfoot>
 	</table>
 
 	<script>
