@@ -3,7 +3,27 @@
 <head>
 	<meta charset="utf-8">
 	<title>Glossar</title>
+	<link href="https://kub-berlin.org/static/favicon.ico" rel="icon">
 	<style>
+		html {
+			color: #111;
+			font-size: 1em;
+			font-family: sans-serif;
+			line-height: 1.5;
+		}
+		header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		h1 {
+			font-weight: normal;
+			line-height: 1.2;
+			margin: 0;
+		}
+		img {
+			max-height: 5em;
+		}
 		table {
 			border-collapse: collapse;
 			border-spacing: 0;
@@ -34,7 +54,10 @@
 		<thead>
 			<tr>
 				<td class="fake-td">
-					<h1>Glossar für Sprachmittler*innen im Kontext Flucht und Migration</h1>
+					<header>
+						<h1>Glossar für Sprachmittler*innen im Kontext Flucht und Migration</h1>
+						<img alt="KuB" src="https://kub-berlin.org/static/logo.svg">
+					</header>
 				</td>
 			</tr>
 		</thead>
@@ -58,7 +81,7 @@
 
 	<script>
 		var form = document.createElement('form');
-		document.querySelector('h1').after(form);
+		document.querySelector('header').after(form);
 
 		var search = document.createElement('input');
 		search.autofocus = true;
