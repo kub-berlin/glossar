@@ -1,6 +1,7 @@
 import csv
 import html
 import locale
+import datetime
 from pathlib import Path
 
 LABELS = {
@@ -92,4 +93,5 @@ if __name__ == '__main__':
 		template
 		.replace('{{{ thead }}}', thead)
 		.replace('{{{ tbody }}}', tbody)
+		.replace('{{{ date }}}', datetime.date.today().strftime('%d.%m.%Y'))
 	)
