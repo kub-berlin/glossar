@@ -139,6 +139,17 @@
 			label.append(' ' + th.textContent);
 			form.append(label);
 		});
+
+		var reset = document.createElement('button');
+		reset.type = 'button';
+		reset.textContent = 'Alle abwählen';
+		reset.addEventListener('click', event => {
+			form.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+				checkbox.checked = false;
+				checkbox.dispatchEvent(new Event('change'));
+			});
+		});
+		form.append(reset);
 	</script>
 </body>
 </html>
