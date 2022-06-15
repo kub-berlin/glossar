@@ -23,51 +23,6 @@ DIR = {
 	'fa': 'rtl',
 }
 
-NOTE_LANGS = ['de', 'ar', 'en', 'fr', 'ru', 'fa', 'tr']
-NOTE_WORDS = [
-	'Androgynität',
-	'Asexuell',
-	'Bisexuell',
-	'Cis',
-	'Coming-Out',
-	'Crossdresser',
-	'Drag King',
-	'Drag Queen',
-	'Drittes Geschlecht',
-	'Dyke',
-	'Gender (soziales Geschlecht)',
-	'Genderqueer',
-	'Geschlecht (anatomisch, biologisch, rechtlich)',
-	'Geschlechtsausdruck',
-	'Geschlechtsidentität',
-	'Geschlechtsneutral',
-	'Gleichgeschlechtliche Partnerschaft',
-	'Hete',
-	'Heteronormativ/ Heternormativität',
-	'Heterosexuell/ Heterosexuelle*r',
-	'Heterosexuell/ Heterosexuelle*r',
-	'Homosexuell/ Homosexuelle*r',
-	'Inter -geschlechtlichkeit, -sexualität',
-	'Lesbe/lesbisch',
-	'LSBTI',
-	'MSM',
-	'Outen (jemanden)',
-	'Queer',
-	'(im) Schrank',
-	'Schwuler/schwul',
-	'Sexualverhalten',
-	'Sexuelle Interessen/Präferenzen',
-	'Sexuelle oder geschlechtliche Nonkonformität',
-	'Sexuelle Orientierung',
-	'Sexuelle und geschlechtliche Minderheiten',
-	'Trans*Frau',
-	'Transgender',
-	'Transition (Geschlechtsangleichung)',
-	'Trans*Mann',
-	'Transphobie/ Transfeindlichkeit',
-	'Transsexuell/Transsexuelle*r',
-	'WSW',
-]
 
 locale.setlocale(locale.LC_ALL, '')
 
@@ -93,10 +48,6 @@ def get_data(root):
 	for lang, translation in list(data.items()):
 		if not any(translation.values()):
 			del data[lang]
-
-	for lang in NOTE_LANGS:
-		for word in NOTE_WORDS:
-			data[lang][word] += '*'
 
 	return data
 
