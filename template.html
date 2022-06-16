@@ -46,12 +46,13 @@
 			padding: 0;
 			padding-bottom: 1em;
 		}
-		tfoot {
-			font-size: small;
-		}
 		tfoot p {
 			margin: 0;
 		}
+		.notes {
+			font-size: small;
+			padding-bottom: 0;
+			}
 		@media print {
 			form {
 				display: none;
@@ -95,7 +96,7 @@
 		</tbody>
 		<tfoot>
 			<tr>
-				<td class="fake-td">
+				<td class="fake-td notes">
 					<p>Die mit einem * markierten Begriffe haben wir mit freundlicher
 					Genehmigung der Schwulenberatung Berlin gGmbH aus ihrer
 					<a href="https://schwulenberatungberlin.de/post/handreichung-fuer-dolmetscher-innen/">Handreichung für Dolmetscher*innen</a> entnommen.</p>
@@ -103,7 +104,7 @@
 			</tr>
 		</tfoot>
 	</table>
-	<div>
+	<div class="notes">
 		<p>Das Glossar der KuB wird ständig überarbeitet und regelmäßig auf
 		<a href="https://kub-berlin.org/ueber-die-kub/veroeffentlichungen/">der Webseite</a>
 		veröffentlicht.</p>
