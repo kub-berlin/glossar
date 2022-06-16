@@ -1,0 +1,7 @@
+git:
+  filters:
+    - filter_type: file
+      source_file: data/de.csv
+      source_language: de
+      file_format: MAGENTO
+      translation_files_expression: 'data/<lang>.csv'
