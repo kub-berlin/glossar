@@ -1,0 +1,24 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+
+    - name: generate glossar.html
+      run: python generate.py > glossar.html
+
+    - name: publish glossar.html as a release asset
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: "glossar.html"
+        token: ${{ secrets.GITHUB_TOKEN }}
+        tag: "latest"
+        allowUpdates: true
