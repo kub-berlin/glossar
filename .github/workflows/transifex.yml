@@ -1,0 +1,28 @@
+on:
+  schedule:
+    - cron:  '0 0 * * 0'  # every sunday at 0:00 UTC
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install transifex client
+      uses: jaxxstorm/action-install-gh-release@v1.5.0
+      with:
+        repo: transifex/cli
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: run tx pull
+      run: tx --token ${{ secrets.TRANSIFEX_TOKEN }} pull -f
+
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: 'tx pull [automated]'
+        title: 'tx pull [automated]'
+        branch: 'tx-pull'
+        delete-branch: true
