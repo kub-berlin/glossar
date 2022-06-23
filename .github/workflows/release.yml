@@ -12,8 +12,10 @@ jobs:
     - uses: actions/checkout@v2
     - uses: actions/setup-python@v2
 
+    - run: sudo locale-gen de_DE.UTF-8
+
     - name: generate glossar.html
-      run: python generate.py > glossar.html
+      run: LC_ALL="de_DE.UTF-8" python generate.py > glossar.html
 
     - name: publish glossar.html as a release asset
       uses: ncipollo/release-action@v1
