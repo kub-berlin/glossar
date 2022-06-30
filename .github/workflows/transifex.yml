@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron:  '0 0 * * 0'  # every sunday at 0:00 UTC
+    - cron:  '0 0 * * 1'  # every sunday at 0:00 UTC
 
 jobs:
   pull:
