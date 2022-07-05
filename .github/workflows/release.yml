@@ -26,4 +26,4 @@ jobs:
         allowUpdates: true
 
     - name: notify the website about the new version
-      run: curl https://kub-berlin.org/glossar/update.php
+      run: sleep 2 && curl https://kub-berlin.org/glossar/update.php
