@@ -4,6 +4,9 @@ import locale
 import datetime
 from pathlib import Path
 
+ORDER = [
+	'de', 'en', 'fr', 'ar', 'fa', 'ru', 'es', 'tr', 'ku', 'sq', 'ps', 'pt'
+]
 LABELS = {
 	'de': 'Deutsch',
 	'ar': 'Arabisch',
@@ -28,12 +31,7 @@ locale.setlocale(locale.LC_ALL, '')
 
 
 def sort_key(item):
-	lang = item[0]
-	# 'de' should be the first column
-	if lang == 'de':
-		return '0'
-	else:
-		return lang
+	return ORDER.index(item[0])
 
 
 def get_data(root):
