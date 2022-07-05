@@ -29,11 +29,9 @@ locale.setlocale(locale.LC_ALL, '')
 
 def sort_key(item):
 	lang = item[0]
-	# 'de' should be the first column
-	if lang == 'de':
-		return '0'
-	else:
-		return lang
+	# sort by custom order
+	order = ['de', 'en', 'fr', 'ar', 'fa', 'ru', 'es', 'tr', 'ku', 'sq', 'ps', 'pt']
+	return order.index(lang)
 
 
 def get_data(root):
