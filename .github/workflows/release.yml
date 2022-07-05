@@ -24,3 +24,6 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         tag: "latest"
         allowUpdates: true
+
+    - name: notify the website about the new version
+      run: curl https://kub-berlin.org/glossar/update.php
