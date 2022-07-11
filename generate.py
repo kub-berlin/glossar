@@ -61,9 +61,9 @@ def get_rows(data):
 	for word in sorted(data['de'], key=locale.strxfrm):
 		row = []
 		for lang, translation in sorted(data.items(), key=sort_key):
-			row.append((lang, translation[word]))
+			row.append((lang, translation.get(word, '')))
 		# include only words with translations
-		if any(data[lang][word] and lang != 'de' for lang in data):
+		if any(data[lang].get(word) and lang != 'de' for lang in data):
 			yield row
 
 
