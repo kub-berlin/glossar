@@ -119,7 +119,7 @@
 		search.autofocus = true;
 		search.addEventListener('input', event => {
 			var q = search.value.toLowerCase();
-			document.querySelectorAll('tbody tr').forEach(tr => {
+			document.querySelectorAll('tbody > tr').forEach(tr => {
 				tr.hidden = q && !tr.textContent.toLowerCase().includes(q);
 			});
 		});
