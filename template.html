@@ -60,6 +60,8 @@
 			a::after {
 				content: ' (' attr(href) ')';
 			}
+			table.print-friendly tr {
+				page-break-inside: avoid;
 		}
 	</style>
 </head>
@@ -81,7 +83,7 @@
 		<tbody>
 			<tr>
 				<td class="fake-td">
-					<table>
+					<table class="print-friendly">
 						<thead>
 							<tr>
 								{{{ thead }}}
