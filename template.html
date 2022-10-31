@@ -27,24 +27,29 @@
 		img {
 			max-height: 5em;
 		}
-		table {
-			border-collapse: collapse;
+		.real-table {
 			border-spacing: 0;
+			border-top: 1px solid black;
+			border-right: 1px solid black;
 		}
-		td, th {
-			border: 1px solid black;
+		.real-td, 
+		.real-th {
+			border-bottom: 1px solid black;
+			border-left: 1px solid black;
 			padding: 0.2em 0.5em;
 			vertical-align: top;
+		}
+		.fake-table {
+			border-spacing: 0;
+		}
+		.fake-td {
+			padding: 0;
+			padding-bottom: 1em;
 		}
 		form {
 			display: flex;
 			gap: 1em;
 			margin-top: 1em;
-		}
-		.fake-td {
-			border: 0;
-			padding: 0;
-			padding-bottom: 1em;
 		}
 		.notes {
 			font-size: small;
@@ -62,11 +67,22 @@
 			}
 			table.print-friendly tr {
 				page-break-inside: avoid;
+			}
+			.real-table {
+				border-collapse: collapse;
+			}
+		}
+		@media screen and (min-height: 15rem) {
+			.real-thead {
+				background: white;
+				position: sticky;
+				top: 0;
+			}
 		}
 	</style>
 </head>
 <body>
-	<table>
+	<table class="fake-table">
 		<thead>
 			<tr>
 				<td class="fake-td">
@@ -83,8 +99,8 @@
 		<tbody>
 			<tr>
 				<td class="fake-td">
-					<table class="print-friendly">
-						<thead>
+					<table class="print-friendly real-table">
+						<thead class="real-thead">
 							<tr>
 								{{{ thead }}}
 							</tr>
