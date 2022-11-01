@@ -25,9 +25,6 @@ DIR = {
 	'ar': 'rtl',
 	'fa': 'rtl',
 }
-TD_CLASS = 'real-td'
-TH_CLASS = 'real-th'
-
 
 locale.setlocale(locale.LC_ALL, '')
 
@@ -80,7 +77,7 @@ if __name__ == '__main__':
 	for lang, label in get_header(data):
 		_lang = html.escape(lang)
 		_label = html.escape(label)
-		thead += f'<th class="{TH_CLASS}" data-lang="{_lang}">{_label}</th>\n'
+		thead += f'<th data-lang="{_lang}">{_label}</th>\n'
 
 	tbody = ''
 	for row in get_rows(data):
@@ -89,7 +86,7 @@ if __name__ == '__main__':
 			_lang = html.escape(lang)
 			_label = html.escape(label)
 			_dir = html.escape(DIR.get(lang, 'ltr'))
-			tbody += f'<td class="{TD_CLASS}" lang="{_lang}" dir="{_dir}">{_label}</td>\n'
+			tbody += f'<td lang="{_lang}" dir="{_dir}">{_label}</td>\n'
 		tbody += '</tr>\n'
 
 	print(

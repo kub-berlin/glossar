@@ -32,8 +32,8 @@
 			border-top: 1px solid black;
 			border-right: 1px solid black;
 		}
-		.real-td, 
-		.real-th {
+		.real-table td,
+		.real-table th {
 			border-bottom: 1px solid black;
 			border-left: 1px solid black;
 			padding: 0.2em 0.5em;
@@ -73,7 +73,7 @@
 			}
 		}
 		@media screen and (min-height: 15rem) {
-			.real-thead {
+			.real-table thead {
 				background: white;
 				position: sticky;
 				top: 0;
@@ -100,7 +100,7 @@
 			<tr>
 				<td class="fake-td">
 					<table class="real-table">
-						<thead class="real-thead">
+						<thead>
 							<tr>
 								{{{ thead }}}
 							</tr>
