@@ -65,11 +65,11 @@
 			a::after {
 				content: ' (' attr(href) ')';
 			}
-			table.print-friendly tr {
-				page-break-inside: avoid;
-			}
 			.real-table {
 				border-collapse: collapse;
+			}
+			.real-table tr {
+				page-break-inside: avoid;
 			}
 		}
 		@media screen and (min-height: 15rem) {
@@ -99,7 +99,7 @@
 		<tbody>
 			<tr>
 				<td class="fake-td">
-					<table class="print-friendly real-table">
+					<table class="real-table">
 						<thead class="real-thead">
 							<tr>
 								{{{ thead }}}
