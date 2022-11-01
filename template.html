@@ -28,14 +28,14 @@
 			max-height: 5em;
 		}
 		.real-table {
-			border-spacing: 0;
-			border-top: 1px solid black;
-			border-right: 1px solid black;
+			border-collapse: collapse;
+		}
+		.real-table tr {
+			page-break-inside: avoid;
 		}
 		.real-table td,
 		.real-table th {
-			border-bottom: 1px solid black;
-			border-left: 1px solid black;
+			border: 1px solid black;
 			padding: 0.2em 0.5em;
 			vertical-align: top;
 		}
@@ -65,14 +65,20 @@
 			a::after {
 				content: ' (' attr(href) ')';
 			}
-			.real-table {
-				border-collapse: collapse;
-			}
-			.real-table tr {
-				page-break-inside: avoid;
-			}
 		}
 		@media screen and (min-height: 15rem) {
+			/* borders need to be separated so that sticky thead has a border */
+			.real-table {
+				border-collapse: separate;
+				border-spacing: 0;
+				border-top: 1px solid black;
+				border-right: 1px solid black;
+			}
+			.real-table td,
+			.real-table th {
+				border-top: 0;
+				border-right: 0;
+			}
 			.real-table thead {
 				background: white;
 				position: sticky;
