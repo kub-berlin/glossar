@@ -26,7 +26,6 @@ DIR = {
 	'fa': 'rtl',
 }
 
-
 locale.setlocale(locale.LC_ALL, '')
 
 

@@ -27,24 +27,29 @@
 		img {
 			max-height: 5em;
 		}
-		table {
+		.real-table {
 			border-collapse: collapse;
-			border-spacing: 0;
 		}
-		td, th {
+		.real-table tr {
+			page-break-inside: avoid;
+		}
+		.real-table td,
+		.real-table th {
 			border: 1px solid black;
 			padding: 0.2em 0.5em;
 			vertical-align: top;
+		}
+		.fake-table {
+			border-spacing: 0;
+		}
+		.fake-td {
+			padding: 0;
+			padding-bottom: 1em;
 		}
 		form {
 			display: flex;
 			gap: 1em;
 			margin-top: 1em;
-		}
-		.fake-td {
-			border: 0;
-			padding: 0;
-			padding-bottom: 1em;
 		}
 		.notes {
 			font-size: small;
@@ -60,13 +65,30 @@
 			a::after {
 				content: ' (' attr(href) ')';
 			}
-			table.print-friendly tr {
-				page-break-inside: avoid;
+		}
+		@media screen and (min-height: 15rem) {
+			/* borders need to be separated so that sticky thead has a border */
+			.real-table {
+				border-collapse: separate;
+				border-spacing: 0;
+				border-top: 1px solid black;
+				border-right: 1px solid black;
+			}
+			.real-table td,
+			.real-table th {
+				border-top: 0;
+				border-right: 0;
+			}
+			.real-table thead {
+				background: white;
+				position: sticky;
+				top: 0;
+			}
 		}
 	</style>
 </head>
 <body>
-	<table>
+	<table class="fake-table">
 		<thead>
 			<tr>
 				<td class="fake-td">
@@ -83,7 +105,7 @@
 		<tbody>
 			<tr>
 				<td class="fake-td">
-					<table class="print-friendly">
+					<table class="real-table">
 						<thead>
 							<tr>
 								{{{ thead }}}
